@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    :root{
+        --verde:#008d34;
+        --verde-claro:#02d34f;
+        --rosa100:#ff00c8;
+        --rosa33:#fc73de;
+        --rosa66:#fc5ed9;
+    }
+    *{
+        box-sizing: border-box;
+        margin:0;
+        padding: 0;
+    }
+body{
+    background-color: #151E49;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;    
+}
+.pattern-stars{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    z-index: 100;
+}
+.glass-ring{
+    /* background-color:#002FA4; */
+    height:30px;
+    width: 30px;
+    border:10px solid rgba(0, 47, 164,0.9) ;
+    border-radius: 100%;
+    z-index:-1;
+    position: relative;
+    bottom:-10px;
+}
+.glass{
+    background-color: rgba(0, 47, 164,0.8);
+    z-index: 0;
+    height: 400px;
+    width: 300px;
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+}
+.reflejo1,.reflejo2{
+    background-color: #005af63a;
+}
+.reflejo1{
+    height: 150px;
+    width: 1em;
+    border-radius: 20px;
+    position: relative;
+    left: 85%;
+    top: 110px;
+}
+.reflejo2{
+    height: 2em;
+    width: 1em;
+    border-radius: 20px;
+    position:relative;
+    left:85%;
+    top: 130px;
+}
+/* flower-box */
+.flower-box{
+    /* border: 1px solid red; */
+    position: relative;
+    height: 300px;
+    margin: 0 30px;
+    top: -90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.tallo{
+    background-color:var(--verde);
+    height: 200px;
+    width: 10px;
+    position: relative;
+    border-radius:1em;
+}
+.espina{
+     border-left: 25px solid var(--verde);
+     border-top: 8px solid transparent;
+     border-bottom: 25px solid transparent;
+
+}
+.e-1{
+    position: relative;
+    top: 5px;
+}
+.e-2{
+transform: rotate(180deg);
+position: relative;
+top: 30px;
+left:-20px;
+}
+.e-3{
+position: relative;
+top: 50px;
+}
+.hoja{
+    height: 50px;
+    width: 50px;
+    background-color:var(--verde);
+   border-radius: 28% 72% 27% 73% / 0% 100% 0% 100% ;
+   position: absolute;
+   z-index: 2;
+   border-left: 3px solid var(--verde-claro);
+   border-top: 4px solid var(--verde-claro);
+}
+.h-1{
+    left: 25%;
+    top: 62%;
+    transform: rotate(-15deg);
+}
+.h-2{
+    transform: rotate(100deg);
+    left: 52%;
+    top: 37%;
+}
+.petalos{
+    /* border: 1px solid blue; */
+    height: 100px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+    top: 8px;
+}
+.b{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+}
+.p1{
+z-index: 15;
+position: absolute;
+
+}
+.p1>.right{
+    animation-name: shakeright;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+.p1>.left{
+    animation-name: shakeleft;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+.p2{
+z-index: 10;
+position: absolute;
+top: -1px;
+}
+.p2>.right{
+    transform: rotate(-10deg);
+    transform: translateX(-5px);
+    animation-name: shakeright;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+
+}
+.p2>.left{
+    transform: rotate(10deg);
+    transform: translateX(5px);
+    animation-name: shakeleft;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    
+}
+.p3{
+z-index:5;
+position:absolute;
+top: -10px;
+}
+.p3>.right{
+transform: rotate(-30deg);
+transform: translateX(-20px);
+/* animation-name: shakeright;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite; */
+}
+.p3>.left{
+transform: rotate(50deg);
+transform: translateX(20px);
+/* animation-name: shakeleft;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite; */
+}
+.petalo{
+    height: 80px;
+    width:  80px;
+    box-shadow: .5px .5px 40px 1px rgba(255, 255, 255, .4);
+}
+.peta1{
+    background-color: var(--rosa100);
+}
+.peta2{
+    background-color: var(--rosa66);
+}
+.peta3{
+    background-color: var(--rosa33);
+}
+.left{
+    
+    border-radius:0% 100% 0% 100% / 30% 70% 30% 70%;
+}
+.right{
+    border-radius: 100% 0% 100% 0% / 70% 30% 70% 30%;;
+}
+.base{
+    background-color: #f8005e;
+    height:.5em;
+    width:300px;
+}
+
+@keyframes shakeleft {
+    from{
+        transform: translate(0px);
+        transform: rotate(0deg);
+    }
+    to{
+        transform: translateX(-5px);
+        transform: rotate(-10deg);
+    }
+}
+@keyframes shakeright {
+    from{
+        transform: translateX(0px);
+        transform: rotate(0deg);
+    }
+    to{
+        transform: translateX(-5px);
+        transform: rotate(10deg);
+    }
+}
+h1{
+    color: aliceblue;
+    font-family: 'Courier New', Courier, monospace;
+    font-size:1.5em;
+    margin-top: 10px;
+}
+.star{
+    position: absolute;
+    /* background-color: #008d34; */
+    color: #e4e709;
+    top: 0;
+    /* width: 20px;
+    height: 20px; */
+    z-index: 100;
+    animation: animate 5s linear infinite;
+}
+.star::before{
+    content:'\f005';
+    font-family:fontAwesome;
+    text-shadow:0 0 5px #f0e0ad;
+}
+@keyframes animate {
+    0%{
+        transform:translateY(0) rotate(0deg);
+    }
+    100%{
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+</style>
+<body>
+    <div class="glass-ring"></div>
+    <div class="glass">
+        <div class="reflejo1"></div>
+        <div class="reflejo2"></div>
+        <div class="flower-box">
+            <div class="petalos">
+                <div class="b p1">
+                    <div class="petalo peta1  left"></div>
+                    <div class="petalo peta1 right"></div>
+                </div>
+                <div class="b p2">
+                    <div class="petalo peta2 left"></div>
+                    <div class="petalo peta2 right"></div>
+                </div>
+                <div class="b p3">
+                    <div class="petalo peta3 left"></div>
+                    <div class="petalo peta3 right"></div>
+                </div>
+            </div>
+                <!-- <div class="hoja h-1"></div> -->
+                <div class="hoja h-2"></div>
+                <div class="tallo">
+                <div class="espina e-1"></div>
+                <div class="espina e-2"></div>
+                <div class="espina e-3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="base"></div>
+    <h1>NO TE RINDAS</h1>
+    <h1>CONFIO EN TI </h1>
+
+    <script>
+        function stars(){
+            let e=document.createElement('div');
+            e.setAttribute('class','star');
+            document.body.appendChild(e);
+            e.style.left=Math.random()* + innerWidth +'px';
+            let size=Math.random()*12;
+            let duration =Math.random()*3;
+
+
+            e.style.fontSize=12+size+'px';
+            e.style.animationDuration = 2+duration+'s';
+
+            setTimeout(function(){
+                document.body.removeChild(e)
+            },5000)
+
+        }
+        setInterval(function(){
+            stars()
+        },100)
+    </script>
+</body>
+</html>
